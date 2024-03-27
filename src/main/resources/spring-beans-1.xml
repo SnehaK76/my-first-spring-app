@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="emp" class="com.prowings.myapp.Employee" lazy-init="false">  
+		<property name="id" value="10"></property>
+		<property name="name" value="Sneha"></property>
+		<property name="address" value="Pune"></property>
+		
+		
+<!--		<constructor-arg index="0" value="10"/>
+		<constructor-arg index="2" value="Pune"/>
+		<constructor-arg index="1" value="Ram"/> -->
+	</bean>
+	
+	<bean id="std" class="com.prowings.myapp.Student">  
+		<property name="id" value="10"></property>
+		<property name="name" value="Sneha"></property>
+		<property name="addresses">
+			<list>
+				<ref bean="addr1"/>
+				<ref bean="addr2"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="addr1" class="com.prowings.myapp.Address">  
+		<property name="pin" value="123"></property>
+		<property name="city" value="Mumbai"></property>
+		<property name="country" value="India"></property>
+	</bean>
+	
+	<bean id="addr2" class="com.prowings.myapp.Address">  
+		<property name="pin" value="456"></property>
+		<property name="city" value="Pune"></property>
+		<property name="country" value="India"></property>
+	</bean>
+	
+	
+	<bean id="car" class="com.prowings.myapp.Car">
+		<property name="id" value="123"/>
+		<property name="company" value="Audi"/>
+		<property name="features">
+			<list>
+				<value>GPS</value>
+				<value>Sensor</value>
+				<value>Cooling seats</value>
+			</list>
+		</property>
+		<property name="components">
+			<set>
+				<value>aaa</value>
+				<value>bbb</value>
+				<value>bbb</value>
+			</set>
+		</property>
+		<property name="parts">
+			<map>
+				<entry key="11" value="AA"/>
+				<entry key="22" value="BB"/>
+				<entry key="33" value="CC"/>
+			</map>
+		</property>
+		<property name="carProps">
+			<props>
+				<prop key="P1">abc</prop>
+				<prop key="P2">pqr</prop>
+				<prop key="P3">xyz</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>
